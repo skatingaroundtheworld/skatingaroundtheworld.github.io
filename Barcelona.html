@@ -1,0 +1,113 @@
+<!Doctype HTML>
+<html>
+   <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+      <!--Google Fonts-->
+      <link href="https://fonts.googleapis.com/css?family=montserrat|Roboto|Poppins|Roboto+Slab" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="CSS/stylesheet.css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <title> Barcelona </title>
+   </head>
+   <body style="background-color: white">
+      <div id="country-text-images">
+         <div id="left">
+            <div class="heading">
+               <h1 style="font-size:4.5vw; color: #ffcc00;"><span style="text-shadow:2.5px 2.5px #595959">BARCELONA.</span></h1>
+            </div>
+            <div class="paragraph">
+               <p> The capital of skateboarding in Europe, the Mediterranean Mecca, call it what you want, Barcelona is a skateboarding paradise.</p>
+               <p><span style="color: #ffcc00"><b><i>Barcelona</i></b></span> experienced a golden era of skating back in the 90s when it seemed like every skater flocked here for cheap living and absolute freedom to skate anywhere and today, both amateurs and professionals travel from all four corners of the globe to experience skating in Barcelona. It is important to point out that in 2006 a law was introduced allowing the local police to prosecute skateboarders, so be mindful!</p>
+               <p style="font-size:1.2vw"> Famous skate spots include - <i> MACBA (Museu d’Art Contemporani de Barcelona), Universitat, El Forum and The W Hotel,</i> to name a few!</p>
+            </div>
+         </div>
+         <div id="right">
+            <div class="slides">
+               <ul>
+                  <li><img src="./images/4block.jpg" alt="SkaterBarcelona"></li>
+                  <li><img src="./images/Hawkbarcelona.jpg" alt="SkaterBarcelona"></li>
+                  <li><img src="./images/forum.jpg" alt="SkaterBarcelona"></li>
+                  <li><img src="./images/prod.jpg" alt="SkaterBarcelona"></li>
+                  <li><img src="./images/bsflipbarcelona.jpg" alt="SkaterBarcelona"></li>
+                  <li><img src="./images/backcrook.jpg" alt="SkaterBarcelona"></li>
+                  <li><img src="./images/SLS.jpg" alt="SkaterBarcelona"></li>
+                  <li><img src="./images/forum1.jpg" alt="SkaterBarcelona"></li>
+                  <li><img src="./images/forum3.jpg" alt="SkaterBarcelona"></li>
+                  <li><img src="./images/macba1.png" alt="SkaterBarcelona"></li>
+               </ul>
+               <a href="#" class="slide-next">&gt;</a>
+               <a href="#" class="slide-prev">&lt;</a>
+            </div>
+         </div>
+      </div>
+      <div id="menu">
+         <div class="link-bcn">
+            <ul>
+               <li style="color:#595959"><a href="https://www.alcarrerskate.com/">Shop</a></li>
+               <li style="color:#595959"><a href="https://www.tmb.cat/en/barcelona-transport/map/metro">Travel</a></li>
+               <li style="color:#595959"><a href ="https://www.facebook.com/NevermindBcn/">Party</a></li>
+               <li style="color:#595959"><a href ="https://www.airbnb.com/a/Barcelona">Sleep</a></li>
+               <li style="color:#595959"><a href="https://goo.gl/4RjLWZ">Skate</a></li>
+            </ul>
+         </div>
+      </div>
+      <script>
+         jQuery(document).ready(function($) {
+           var interval;
+
+         $('.slides').hover(function() {
+           if (interval) clearInterval(interval); clearInterval(interval);
+             		interval = null;
+             	},
+           function() {
+             		interval = setInterval(function() { slideRight(); }, 5000);
+             	});
+             	var slideCount  = $('.slides ul li').length;
+             	var slideWidth  = $('.slides ul li').width();
+             	var slideHeight = $('.slides ul li').height();
+             	var sliderWidth = slideCount * slideWidth;
+
+             	$('.slides').css({ width: slideWidth, height: slideHeight });
+             	$('.slides ul').css({ width: sliderWidth, marginLeft: - slideWidth });
+             	$('.slides ul li:last-child').prependTo('.slides ul');
+
+           function slideLeft() {
+             		$('.slides ul').animate({ left: + slideWidth }, 350, function() {
+             			$('.slides ul li:last-child').prependTo('.slides ul');
+             			$('.slides ul').css('left', '');
+             		});
+             	};
+           function slideRight() {
+             		$('.slides ul').animate({ left: - slideWidth }, 350, function() {
+             			$('.slides ul li:first-child').appendTo('.slides ul');
+             			$('.slides ul').css('left', '');
+             		});
+             	};
+             	$('a.slide-prev').click(function(e) {
+             		e.preventDefault(); slideLeft();
+             	});
+             	$('a.slide-next').click(function(e) {
+             		e.preventDefault(); slideRight();
+             	});
+             });
+      </script>
+   </body>
+   <div class ="nav-left-bcn">
+      <nav>
+         <ul>
+            <li><a href="index.html"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a></li>
+            <li><a href="Gallery.html"><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.twitter.com/jayhester"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a></li>
+         </ul>
+         <div class ="nav-right">
+            <ul>
+               <li><a href="Barcelona.html"><strike><b>BCN</b></strike></a></li>
+               <li><a href="Newyork.html"><b>NYC</b></a></li>
+               <li><a href="Paris.html"><b>PAR</b></a></li>
+               <li><a href="London.html"><b>LDN</b></a></li>
+               <li><a href="Berlin.html"><b>BER</b></a></li>
+            </ul>
+            <a href='ContactUs.html'><button class="button" style="vertical-align:middle"><span>Contact Us! </span></button></a>
+         </div>
+      </nav>
+   </div>
+</html>

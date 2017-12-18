@@ -1,0 +1,113 @@
+<!Doctype HTML>
+<html>
+   <meta charset="utf-8"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=montserrat|Roboto|Poppins|Roboto+Slab" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="CSS/stylesheet.css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <title> Paris </title>
+   </head>
+   <body style="background-color: white">
+      <div id="country-text-images">
+         <div id="left">
+            <div class="heading">
+               <h1 style="font-size:4.5vw; color: #ff3333;"><span style="text-shadow:2.5px 2.5px #0033cc">PARIS.</span></h1>
+            </div>
+            <div class="paragraph">
+               <p> Writers, poets, and artists have been inspired by the City of Lights for centuries. Skateboarding there is no different. While it has never had the hype of Barcelona, Paris has held its own in the Skate scene for decades. </p>
+               <p>The abundant marble of Le Dôme, Bercy, or La Défense, and perhaps even the legendary Eiffel Tower "Basins" crossed with the rich Bohéme lifestyle of cafés, Le Métro, and multiethnic cuisine keep <span style="color:#ff3333"><i><b>Paris</b></i></span> up on any skateboarders “must visit” list. </p>
+               <p style="font-size:1.2vw"> Famous skate spots include - <i>Creteil, La Défense, Bercy and Le Dôme,</i> to name a few!</p>
+            </div>
+         </div>
+         <div id="right">
+            <div class="slides">
+               <ul>
+                  <li><img src="./images/paris5.jpg" alt="Paris skater"></li>
+                  <li><img src="./images/paris1.jpg" alt="Paris skater"></li>
+                  <li><img src="./images/paris2.jpg" alt="Paris skater"></li>
+                  <li><img src="./images/paris8.jpg" alt="Paris skater"></li>
+                  <li><img src="./images/paris4.jpg" alt="Paris skater"></li>
+                  <li><img src="./images/paris3.jpg" alt="Paris skater"></li>
+                  <li><img src="./images/paris6.jpg" alt="Paris skater"></li>
+               </ul>
+               <a href="#" class="slide-next">&gt;</a>
+               <a href="#" class="slide-prev">&lt;</a>
+            </div>
+         </div>
+      </div>
+      <div id="menu">
+         <div class="link-par">
+            <ul>
+               <li style="color:#ff3333"><a href="http://www.vegaskateshop.fr/">Shop</a></li>
+               <li style="color:#ff3333"><a href="http://metromap.fr/en">Travel</a></li>
+               <li style="color:#ff3333"><a href ="https://goo.gl/maps/3HDxWxaMTDG2">Party</a></li>
+               <li style="color:#ff3333"><a href ="https://www.airbnb.com/a/Paris">Sleep</a></li>
+               <li style="color:#ff3333"><a href="https://goo.gl/bXLsbn">Skate</a></li>
+            </ul>
+         </div>
+      </div>
+      <script>
+         jQuery(document).ready(function($) {
+         	var interval;
+
+         	$('.slides').hover(function() {
+         		if (interval) clearInterval(interval);
+         		clearInterval(interval);
+         		interval = null;
+         	}, function() {
+         		interval = setInterval(function() { slideRight(); }, 5000);
+         	});
+         	var slideCount  = $('.slides ul li').length;
+         	var slideWidth  = $('.slides ul li').width();
+         	var slideHeight = $('.slides ul li').height();
+         	var sliderWidth = slideCount * slideWidth;
+
+         	$('.slides').css({ width: slideWidth, height: slideHeight });
+         	$('.slides ul').css({ width: sliderWidth, marginLeft: - slideWidth });
+         	$('.slides ul li:last-child').prependTo('.slides ul');
+
+         	function slideLeft() {
+         		$('.slides ul').animate({ left: + slideWidth }, 350, function() {
+         			$('.slides ul li:last-child').prependTo('.slides ul');
+         			$('.slides ul').css('left', '');
+         		});
+         	};
+         	function slideRight() {
+         		$('.slides ul').animate({ left: - slideWidth }, 350, function() {
+         			$('.slides ul li:first-child').appendTo('.slides ul');
+         			$('.slides ul').css('left', '');
+         		});
+         	};
+         	$('a.slide-prev').click(function(e) {
+         		e.preventDefault(); slideLeft();
+         	});
+         	$('a.slide-next').click(function(e) {
+         		e.preventDefault(); slideRight();
+         	});
+         });
+
+      </script>
+   </body>
+   <div class ="nav-left-par">
+      <nav>
+         <ul>
+            <li><a href="index.html"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a></li>
+            <li><a href="Gallery.html"><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.twitter.com/jayhester"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a></li>
+         </ul>
+         <div class ="nav-right">
+            <ul>
+               <li><a href="Barcelona.html"><b>BCN</b></a></li>
+               <li><a href="Newyork.html"><b>NYC</b></a></li>
+               <li><a href="Paris.html"><strike><b>PAR</b></strike></a></li>
+               <li><a href="London.html"><b>LDN</b></a></li>
+               <li><a href="Berlin.html"><b>BER</b></a></li>
+            </ul>
+            <a href='ContactUs.html'><button class="button" style="vertical-align:middle"><span>Contact Us! </span></button></a>
+         </div>
+      </nav>
+   </div>
+</html>

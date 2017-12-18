@@ -1,0 +1,113 @@
+<!Doctype HTML>
+<html>
+   <head>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=montserrat|Roboto|Poppins|Roboto+Slab" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="CSS/stylesheet.css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <title> Berlin </title>
+   </head>
+   <body style="background-color: white">
+      <div id="country-text-images">
+         <div id="left">
+            <div class="heading">
+               <h1 style="font-size:4.3vw; color: #009933;"><span style="text-shadow:2.5px 2.5px #3BBD67">BERLIN.</span></h1>
+            </div>
+            <div class="paragraph">
+               <p> Berlin as a skate city – it’s first of all a myriad of spots and skaters! The city is so big that a fresh flow of new spots and skate crews that no one had ever heard about keeps coming up. Yet, the vibe is really friendly regardless of where you go or who you meet.</p>
+               <p> Reasons that make<span style="color:#009933"><i><b>Berlin </b></i></span> so attractive are aplenty: culture left and right; every happening artist or musician has Berlin far up on their hip-list – plus the city’s quite unique history, in which the divide and later reunion just form the latest of many moving chapters.</p>
+               <p style="font-size:1.2vw"> Famous skate spots include - <i>Heidelberger Platz, Skatehalle Nike SB Shelter, Kulturforum and Skatepark Vogelfreiheit,</i> to name a few!</p>
+            </div>
+         </div>
+         <div id="right">
+            <div class="slides">
+               <ul>
+                  <li><img src="./images/berlin10.jpg" alt="SkaterLondon"></li>
+                  <li><img src="./images/berlin2.jpg" alt="SkaterLondon"></li>
+                  <li><img src="./images/berlin3.jpg" alt="SkaterLondon"></li>
+                  <li><img src="./images/berlin7.jpg" alt="SkaterLondon"></li>
+                  <li><img src="./images/berlin9.jpg" alt="SkaterLondon"></li>
+                  <li><img src="./images/berlin4.jpg" alt="SkaterLondon"></li>
+                  <li><img src="./images/berlin5.jpg" alt="SkaterLondon"></li>
+                  <li><img src="./images/berlin8.jpg" alt="SkaterLondon"></li>
+               </ul>
+               <a href="#" class="slide-next">&gt;</a>
+               <a href="#" class="slide-prev">&lt;</a>
+            </div>
+         </div>
+      </div>
+      <div id="menu">
+         <div class="link-ber">
+            <ul>
+               <li style="color:#047E04"><a href="https://www.titus.de/shops/berlin/">Shop</a></li>
+               <li style="color:#047E04"><a href="https://berlinmap360.com/berlin-metro-map#.WjR0K7SFhE4">Travel</a></li>
+               <li style="color:#047E04"><a href ="https://cassiopeia-berlin.de/">Party</a></li>
+               <li style="color:#047E04"><a href ="https://www.airbnb.com/a/berlin">Sleep</a></li>
+               <li style="color:#047E04"><a href="https://goo.gl/sTjFfG">Skate</a></li>
+            </ul>
+         </div>
+      </div>
+      <script>
+         jQuery(document).ready(function($) {
+          var interval;
+
+          $('.slides').hover(function() {
+            if (interval) clearInterval(interval);
+            clearInterval(interval);
+            interval = null;
+          }, function() {
+            interval = setInterval(function() { slideRight(); }, 5000);
+          });
+          var slideCount  = $('.slides ul li').length;
+          var slideWidth  = $('.slides ul li').width();
+          var slideHeight = $('.slides ul li').height();
+          var sliderWidth = slideCount * slideWidth;
+
+          $('.slides').css({ width: slideWidth, height: slideHeight });
+          $('.slides ul').css({ width: sliderWidth, marginLeft: - slideWidth });
+          $('.slides ul li:last-child').prependTo('.slides ul');
+
+          function slideLeft() {
+            $('.slides ul').animate({ left: + slideWidth }, 350, function() {
+              $('.slides ul li:last-child').prependTo('.slides ul');
+              $('.slides ul').css('left', '');
+            });
+          };
+          function slideRight() {
+            $('.slides ul').animate({ left: - slideWidth }, 350, function() {
+              $('.slides ul li:first-child').appendTo('.slides ul');
+              $('.slides ul').css('left', '');
+            });
+          };
+          $('a.slide-prev').click(function(e) {
+            e.preventDefault(); slideLeft();
+          });
+          $('a.slide-next').click(function(e) {
+            e.preventDefault(); slideRight();
+          });
+         });
+      </script>
+   </body>
+   <div class ="nav-left-ber">
+      <nav>
+         <ul>
+            <li><a href="index.html"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a></li>
+            <li><a href="Gallery.html"><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.twitter.com/jayhester"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a></li>
+         </ul>
+         <div class ="nav-right">
+            <ul>
+               <li><a href="Barcelona.html"><b>BCN</b></a></li>
+               <li><a href="Newyork.html"><b>NYC</b></a></li>
+               <li><a href="Paris.html"><b>PAR</b></a></li>
+               <li><a href="London.html"><b>LDN</b></a></li>
+               <li><a href="Berlin.html"><strike><b>BER</b></strike></a></li>
+            </ul>
+            <a href='ContactUs.html'> <button class="button" style="vertical-align:middle"><span>Contact Us! </span></button></a>
+         </div>
+      </nav>
+   </div>
+</html>

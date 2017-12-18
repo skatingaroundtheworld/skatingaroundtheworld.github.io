@@ -1,0 +1,116 @@
+<!Doctype HTML>
+<html>
+   <head>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=montserrat|Roboto|Poppins|Roboto+Slab" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="CSS/stylesheet.css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <title> New York City </title>
+   </head>
+   <body style="background-color: white">
+      <div id="country-text-images">
+         <div id="left">
+            <div class="heading">
+               <h1 style="font-size:4.3vw; color: #262626"><span style="text-shadow:2.5px 2.5px #0033cc">NEW YORK.</span></h1>
+            </div>
+            <div class="paragraph">
+               <p> The buzzing vibrancy of the city that never sleeps just energizes skating there. Rolling down the avenues, surrounded by the flurry of lights, diverse cultures, and massive skyline is enough to make you feel like an immediate superconductor. Tie in NYC's rich skate history along with some epic spots and you're in for an amazing trip. </p>
+               <p><span style="color:#0033cc"><i><b>New York City</b></i></span> is a great place to be a traveling skater, as you can skate and take trains to almost every spot. When you’re not skating, the city hosts the best culture, food and entertainment in the U.S.</p>
+               <p style="font-size:1.2vw"> Famous skate spots include -<i>Brooklyn Banks, Union Square, LES Skatepark and Flushing Meadows,</i> to name a few!</p>
+            </div>
+         </div>
+         <div id="right">
+            <div class="slides">
+               <ul>
+                  <li><img src="./images/ny2.jpg" alt="SkaterNYC"></li>
+                  <li><img src="./images/ny3.jpg" alt="SkaterNYC"></li>
+                  <li><img src="./images/ny1.jpg" alt="SkaterNYC"></li>
+                  <li><img src="./images/les-2.jpg" alt="SkaterNYC"></li>
+                  <li><img src="./images/alex-olson-hydrant.jpg" alt="SkaterNYC"></li>
+                  <li><img src="./images/nycar.jpg" alt="SkaterNYC"></li>
+                  <li><img src="./images/ny4.jpg" alt="SkaterNYC"></li>
+               </ul>
+               <a href="#" class="slide-next">&gt;</a>
+               <a href="#" class="slide-prev">&lt;</a>
+            </div>
+         </div>
+      </div>
+      <div id="menu">
+         <div class="link-nyc">
+            <ul>
+               <li style="color:#0033cc">
+                  <a href="http://www.laborskateshop.com/">
+                  Shop
+                  </a>
+               </li>
+               <li style="color:#0033cc"><a href="http://web.mta.info/maps/submap.html">Travel</a></li>
+               <li style="color:#0033cc"><a href ="https://www.clockworknyc.com/">Party</a></li>
+               <li style="color:#0033cc"><a href ="https://www.airbnb.com/a/New-York"></a>Sleep</li>
+               <li style="color:#0033cc"><a href="http://quartersnacks.com/spots/">Skate</a></li>
+            </ul>
+         </div>
+      </div>
+      <script>
+         jQuery(document).ready(function($) {
+           var interval;
+
+           $('.slides').hover(function() {
+             if (interval) clearInterval(interval);
+             clearInterval(interval);
+             interval = null;
+           }, function() {
+             interval = setInterval(function() { slideRight(); }, 5000);
+           });
+           var slideCount  = $('.slides ul li').length;
+           var slideWidth  = $('.slides ul li').width();
+           var slideHeight = $('.slides ul li').height();
+           var sliderWidth = slideCount * slideWidth;
+
+           $('.slides').css({ width: slideWidth, height: slideHeight });
+           $('.slides ul').css({ width: sliderWidth, marginLeft: - slideWidth });
+           $('.slides ul li:last-child').prependTo('.slides ul');
+
+           function slideLeft() {
+             $('.slides ul').animate({ left: + slideWidth }, 350, function() {
+               $('.slides ul li:last-child').prependTo('.slides ul');
+               $('.slides ul').css('left', '');
+             });
+           };
+           function slideRight() {
+             $('.slides ul').animate({ left: - slideWidth }, 350, function() {
+               $('.slides ul li:first-child').appendTo('.slides ul');
+               $('.slides ul').css('left', '');
+             });
+           };
+           $('a.slide-prev').click(function(e) {
+             e.preventDefault(); slideLeft();
+           });
+           $('a.slide-next').click(function(e) {
+             e.preventDefault(); slideRight();
+           });
+         });
+      </script>
+   </body>
+   <div class ="nav-left-ny">
+      <nav>
+         <ul>
+            <li><a href="index.html"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a></li>
+            <li><a href="Gallery.html"><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.twitter.com/jayhester"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a></li>
+         </ul>
+         <div class ="nav-right">
+            <ul>
+               <li><a href="Barcelona.html"><b>BCN</b></a></li>
+               <li><a href="Newyork.html"><strike><b>NYC</b></strike></a></li>
+               <li><a href="Paris.html"><b>PAR</b></a></li>
+               <li><a href="London.html"><b>LDN</b></a></li>
+               <li><a href="Berlin.html"><b>BER</b></a></li>
+            </ul>
+            <a href='ContactUs.html'><button class="button" style="vertical-align:middle"><span>Contact Us! </span></button></a>
+         </div>
+      </nav>
+   </div>
+</html>

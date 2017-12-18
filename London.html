@@ -1,0 +1,117 @@
+<!Doctype HTML>
+<html>
+   <head>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+      <!--Google Fonts-->
+      <link href="https://fonts.googleapis.com/css?family=montserrat|Roboto|Poppins|Roboto+Slab" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="CSS/stylesheet.css"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <title> London </title>
+   </head>
+   <body style="background-color: white">
+      <div id="country-text-images">
+         <div id="left">
+            <div class="heading">
+               <h1 style="font-size:4.3vw; color: #4d4d4d;"><span style="text-shadow:2.5px 2.5px #800080">LONDON.</span></h1>
+            </div>
+            <div class="paragraph">
+               <p> When it comes to terrain and aesthetic, London has something that the skateboarding world has always found captivating. Although the city has never been gifted in the same way as it’s continental counterparts with open spaces and smooth ground, it does however, have many unique spots surrounded by a panoramic halo of interesting visuals.</p>
+               <p> What makes <span style="color:#800080"><i><b>London</b></i></span> so great for skating is the Tube. London’s underground network means you can buy a one-day travelcard and traverse the city all day long.</p>
+               <p style="font-size:1.2vw"> Famous skate spots include - <i>Southbank, St.Pauls, Bay Sixty 6 and Euston Banks,</i> to name a few!</p>
+            </div>
+         </div>
+         <div id="right">
+            <div class="slides">
+               <ul>
+                  <li><img src="./images/southbank.jpg" alt="SkaterLondon"></li>
+                  <li><img src="./images/london4.jpg" alt="SkaterLondon"></li>
+                  <li><img src="./images/london11.jpg" alt="SkaterLondon"></li>
+                  <li><img src="./images/london6.jpg" alt="SkaterLondon"></li>
+                  <li><img src="./images/london10.jpg" alt="SkaterLondon"></li>
+                  <li><img src="./images/london2.jpg" alt="SkaterLondon"></li>
+                  <li><img src="./images/london9.jpg" alt="SkaterLondon"></li>
+               </ul>
+               <a href="#" class="slide-next">&gt;</a>
+               <a href="#" class="slide-prev">&lt;</a>
+            </div>
+         </div>
+      </div>
+      <div id="menu">
+         <div class="link-ldn">
+            <ul>
+               <li style="color:#0033cc">
+                  <a href="https://www.slamcity.com/">
+                  Shop
+                  </a>
+               </li>
+               <li style="color:#0033cc"><a href="https://tfl.gov.uk/maps/track/tube">Travel</a></li>
+               <li style="color:#0033cc"><a href ="https://www.timeout.com/london/bars-pubs/camden-pubs">Party</a></li>
+               <li style="color:#0033cc"><a href ="https://www.airbnb.com/a/london">Sleep</a></li>
+               <li style="color:#0033cc"><a href="https://goo.gl/Xxpwh2">Skate</a></li>
+            </ul>
+         </div>
+      </div>
+      <script>
+         jQuery(document).ready(function($) {
+         	var interval;
+
+         	$('.slides').hover(function() {
+         		if (interval) clearInterval(interval);
+         		clearInterval(interval);
+         		interval = null;
+         	}, function() {
+         		interval = setInterval(function() { slideRight(); }, 5000);
+         	});
+         	var slideCount  = $('.slides ul li').length;
+         	var slideWidth  = $('.slides ul li').width();
+         	var slideHeight = $('.slides ul li').height();
+         	var sliderWidth = slideCount * slideWidth;
+
+         	$('.slides').css({ width: slideWidth, height: slideHeight });
+         	$('.slides ul').css({ width: sliderWidth, marginLeft: - slideWidth });
+         	$('.slides ul li:last-child').prependTo('.slides ul');
+
+         	function slideLeft() {
+         		$('.slides ul').animate({ left: + slideWidth }, 350, function() {
+         			$('.slides ul li:last-child').prependTo('.slides ul');
+         			$('.slides ul').css('left', '');
+         		});
+         	};
+         	function slideRight() {
+         		$('.slides ul').animate({ left: - slideWidth }, 350, function() {
+         			$('.slides ul li:first-child').appendTo('.slides ul');
+         			$('.slides ul').css('left', '');
+         		});
+         	};
+         	$('a.slide-prev').click(function(e) {
+         		e.preventDefault(); slideLeft();
+         	});
+         	$('a.slide-next').click(function(e) {
+         		e.preventDefault(); slideRight();
+         	});
+         });
+      </script>
+   </body>
+   <div class ="nav-left-ldn">
+      <nav>
+         <ul>
+            <li><a href="index.html"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a></li>
+            <li><a href="Gallery.html"><i class="fa fa-picture-o fa-2x" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.twitter.com/jayhester"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a></li>
+         </ul>
+         <div class ="nav-right">
+            <ul>
+               <li><a href="Barcelona.html"><b>BCN</b></a></li>
+               <li><a href="Newyork.html"><b>NYC</b></a></li>
+               <li><a href="Paris.html"><b>PAR</b></a></li>
+               <li><a href="London.html"><strike><b>LDN</b></strike></a></li>
+               <li><a href="Berlin.html"><b>BER</b></a></li>
+            </ul>
+            <a href='ContactUs.html'><button class="button" style="vertical-align:middle"><span>Contact Us! </span></button></a>
+         </div>
+      </nav>
+   </div>
+</html>
